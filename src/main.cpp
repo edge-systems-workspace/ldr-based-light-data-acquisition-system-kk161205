@@ -21,8 +21,24 @@ const uint8_t LDR_PIN = A0;
 /** @brief Variable to store raw ADC brightness value */
 uint16_t ldrRawValue = 0;
 
+/**
+ * @brief Arduino setup function
+ *
+ * Initializes serial communication and prints
+ * system startup message.
+ */
 void setup() {
 
+    Serial.begin(9600);
+
+    while (!Serial) {
+        ; // Wait for Serial (recommended for Uno R4)
+    }
+
+    Serial.println("=================================");
+    Serial.println(" Embedded Light Monitoring System ");
+    Serial.println(" LDR Sensor Initialized ");
+    Serial.println("=================================");
 }
 
 void loop() {
