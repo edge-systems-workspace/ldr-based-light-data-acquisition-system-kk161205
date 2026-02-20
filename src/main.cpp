@@ -41,6 +41,16 @@ void setup() {
     Serial.println("=================================");
 }
 
+/**
+ * @brief Arduino main execution loop
+ *
+ * Reads LDR sensor value and prints
+ * raw ADC brightness reading.
+ */
 void loop() {
 
+    ldrRawValue = analogRead(LDR_PIN);
+
+    Serial.print("Raw ADC Value: ");
+    Serial.println(ldrRawValue);
 }
