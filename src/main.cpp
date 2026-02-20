@@ -21,6 +21,9 @@ const uint8_t LDR_PIN = A0;
 /** @brief Variable to store raw ADC brightness value */
 uint16_t ldrRawValue = 0;
 
+/** @brief Threshold value to classify brightness */
+const uint16_t LIGHT_THRESHOLD = 500;
+
 /**
  * @brief Arduino setup function
  *
@@ -53,4 +56,10 @@ void loop() {
 
     Serial.print("Raw ADC Value: ");
     Serial.println(ldrRawValue);
+
+    if (ldrRawValue > LIGHT_THRESHOLD) {
+        Serial.println("Status: BRIGHT");
+    } else {
+        Serial.println("Status: DARK");
+    }
 }
