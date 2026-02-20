@@ -54,6 +54,7 @@ void loop() {
 
     ldrRawValue = analogRead(LDR_PIN);
 
+    Serial.println("-----------------------------");
     Serial.print("Raw ADC Value: ");
     Serial.println(ldrRawValue);
 
@@ -62,4 +63,11 @@ void loop() {
     } else {
         Serial.println("Status: DARK");
     }
+
+    Serial.println("-----------------------------\n");
+
+    /**
+     * @brief Sampling delay (500 ms)
+     */
+    delay(500);
 }
